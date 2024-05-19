@@ -1,5 +1,6 @@
-import { BaseURL } from "../../appsettings.js";
-
+// import { BaseURL } from "../../appsettings.js";
+// const BaseURL = "https://floqer-btn93dcag-haresh-kurades-projects.vercel.app/api/";
+const BaseURL = "https://floqer-btn93dcag-haresh-kurades-projects.vercel.app/api";
 export const salaryDataEndpoints = {
     GET_ALL_DATA: BaseURL + "salaryData/",
     GET_ALL_COUNT: BaseURL + "salaryData/count",
