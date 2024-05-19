@@ -10,6 +10,12 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.get("/", (req,res)=>{
+  return res.status(200).send({message: "Welcome to Floqer backend server..."})
+});
+app.get("/api", (req,res)=>{
+  return res.status(200).send({message: "Welcome to Floqer backend server APIs..."})
+});
 
 // MongoDB Atlas connection string
 const MONGODB_URI = process.env.MONGO_URL;
@@ -24,9 +30,6 @@ mongoose.connect(MONGODB_URI, {
 })
 .catch(err => console.error(err));
 
-app.get("/", (req,res)=>{
-    return res.status(200).send({message: "Welcome to Floqer backend server..."})
-});
 // Routes
 app.use('/api/salaryData', salaryDataRoute);
 
