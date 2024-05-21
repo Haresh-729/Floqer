@@ -80,7 +80,7 @@ export async function GetChatResponse(message){
         }catch(error){
             console.log("FETCH RESPONSE API Error:", error);
             toast.dismiss(toastId);
-            toast.error(error.response?.data?.message || "An error occurred while CHECKING uploading data.");
+            toast.error(error.response?.data?.message || "An error occurred while generating response.");
             console.log(error.response?.data?.logs);
             return error.response?.data?.logs;
         }
