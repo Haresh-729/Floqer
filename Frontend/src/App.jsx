@@ -3,6 +3,8 @@ import './App.css'
 import { useSelector } from 'react-redux'
 import { getBgColor } from './App/Slice/DashboardSlice';
 import SalaryData from './Components/SalaryData';
+import { Route, Routes } from 'react-router-dom';
+import Chat from './Components/Chat';
 
 function App() {
   const bgColor = useSelector(getBgColor);
@@ -10,7 +12,10 @@ function App() {
   return (
     <div className={`h-screen ${bgColor ? 'bg-[#000000]' : 'bg-[#ffffff]'} overflow-y-auto scrollbar-hide`}>
       {/* <Dashboard/> */}
-      <SalaryData/>
+      <Routes>
+        <Route path="/" element={[<SalaryData/>]}/>
+        <Route path="/chat" element={[<Chat/>]}/>
+      </Routes>      
     </div>
   )
 }

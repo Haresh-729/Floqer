@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const salaryDataRoute = require("./Routes/SalaryDataRoutes.js");
 const dotenv = require("dotenv").config();
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 app.get("/", (req,res)=>{
   return res.status(200).send({message: "Welcome to Floqer backend server..."})
 });

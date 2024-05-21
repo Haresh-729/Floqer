@@ -1,6 +1,8 @@
 const express = require('express');
 const SalaryData = require("../Models/salariesModel.js");
 const router = express.Router();
+const { PythonShell } = require('python-shell');
+const path = require('path');
 
 router.get('/', async (req, res) => {
     try {
@@ -108,5 +110,25 @@ router.get('/mainTabledata', async (req, res) => {
     }
 });
 
+router.post('/generate-response', (req, res) => {
+    const message = req.body.message;
+  
+    let options = {
+      mode: 'text',
+      pythonOptions: ['-u'],
+      scriptPath: path.join(__dirname, '..'),  // Directory of app.py
+      args: [message]
+    };
+    console.log(options.scriptPath);
+  
+    PythonShell.run('app.py', options, (err, result) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: 'Server Error', logs: err.logs });
+      } else {
+        return res.status(200).send({ success:true, message: "Response Generated.", response: result[0]});
+      }
+    });
+  });
 
   module.exports = router;
