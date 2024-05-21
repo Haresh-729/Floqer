@@ -1,4 +1,5 @@
-import { BaseURL } from "../../appsettings.js";
+// import { BaseURL } from "../../appsettings.js";
+const BaseURL = "http://localhost:5000/api/";
 // const BaseURL = "https://floqer-btn93dcag-haresh-kurades-projects.vercel.app/api/";
 // const BaseURL = "https://floqer-btn93dcag-haresh-kurades-projects.vercel.app/api";
 export const salaryDataEndpoints = {
