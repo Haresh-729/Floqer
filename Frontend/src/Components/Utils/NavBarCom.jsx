@@ -7,6 +7,7 @@ import { getBgColor, setBgColor } from '../../App/Slice/DashboardSlice';
 
 const NavBarCom = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const themeChange = () =>{
         dispatch(setBgColor());
     }
@@ -14,7 +15,13 @@ const NavBarCom = () => {
   return (
     <>
         <header className={`fixed top-2 left-3 right-3 h-[9vh] flex items-center justify-center opacity-100 z-[200] transition-all duration-300 ${bgColor ? 'bg-[#484848a6]' : 'bg-[#f7cbbc7a]'} rounded-xl`}>
-        <nav className="flex items-center justify-end thrift-container">
+        <nav className="flex items-center justify-end thrift-container gap-5">
+                <button onClick={()=>{navigate('/')}}>
+                    Home
+                </button>
+                <button onClick={()=>{navigate("/Chat")}}>
+                    Chat
+                </button>
             <div className="flex-row gap-5 ">
                 {
                     bgColor ? (

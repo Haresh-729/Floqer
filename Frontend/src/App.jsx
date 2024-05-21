@@ -5,6 +5,7 @@ import { getBgColor } from './App/Slice/DashboardSlice';
 import SalaryData from './Components/SalaryData';
 import { Route, Routes } from 'react-router-dom';
 import Chat from './Components/Chat';
+import NavBarCom from './Components/Utils/NavBarCom';
 
 function App() {
   const bgColor = useSelector(getBgColor);
@@ -14,7 +15,7 @@ function App() {
       {/* <Dashboard/> */}
       <Routes>
         <Route path="/" element={[<SalaryData/>]}/>
-        <Route path="/chat" element={[<Chat/>]}/>
+        <Route path="/chat" element={[<NavBarCom/>,<Chat/>]}/>
       </Routes>      
     </div>
   )
